@@ -1,0 +1,1 @@
+docker run --gpus all -it --rm --shm-size=32gb -u $USER -p 6006:6006 --mount type=bind,source="$(pwd)/code",target=/home/"$USER"/code --mount type=bind,source="$(pwd)/data",target=/home/"$USER"/data --mount type=bind,source="$(pwd)/log",target=/home/"$USER"/log uniformface /bin/bash -l

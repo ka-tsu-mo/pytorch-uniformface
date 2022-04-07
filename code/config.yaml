@@ -1,0 +1,34 @@
+seed: 72
+dataset:
+  train: ./data/processed/CASIA-WebFace
+  test:  ./data/processed/lfw
+
+model_name: sphereface20
+emb_dim: 512
+
+# max iterations is 28K (according to sphereface papar)
+batch_size: 256  # 1 epoch = 1920 iterations
+milestones: [16000, 24000]
+max_iters: 28000
+
+loss:
+  name: sphereface
+  margin: 4
+
+  #name: cosface
+  #scale: 64
+  #margin: 0.35
+
+  #name: arcface
+  #scale: 30
+  #margin: 0.4
+  #easy_margin: True
+alpha: 1.0  # weight of uniform loss
+beta: 0.0   # update ratio of class centers
+compute_in_batch: True
+
+lr: 0.1
+momentum: 0.9
+weight_decay: 5.0e-4
+decay_w: True
+device: cuda
